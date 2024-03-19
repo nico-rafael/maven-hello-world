@@ -6,7 +6,7 @@
 
   <groupId>com.myapp</groupId>
   <artifactId>myapp</artifactId>
-  <version>1.0.${brpatch}</version>
+  <version>${jarVersion}</version>
 
   <name>myapp</name>
   <!-- FIXME change it to the project's website -->
