@@ -9,6 +9,9 @@ trigger:
 pool:
   name: MyAgentsPool
 
+variables:
+  brpatch: $[counter(variables['build.sourcebranchname'], 0)]
+
 steps:
 - task: Maven@1
   inputs:
@@ -23,7 +26,7 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'java -jar myapp/target/myapp-1.0.$(Build.BuildNumber).jar'
+    script: 'java -jar myapp/target/myapp-1.0.$(brpatch).jar'
 
 - task: CopyFiles@1
   inputs:
