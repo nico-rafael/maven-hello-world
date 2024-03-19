@@ -23,6 +23,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean package'
+    options: 'clean package -Dbrpatch=$(brpatch)'
 
 - task: CmdLine@2
   inputs:
