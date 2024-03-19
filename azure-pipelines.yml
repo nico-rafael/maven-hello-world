@@ -23,4 +23,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'java -cp target/classes com.myapp.app.App'
+    script: 'java -jar myapp/target/myapp-1.0-SNAPSHOT.jar'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
