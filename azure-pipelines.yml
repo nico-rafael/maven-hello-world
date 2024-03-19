@@ -23,14 +23,10 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'java -jar myapp/target/myapp-1.0-SNAPSHOT.jar'
+    script: 'java -jar myapp/target/myapp-1.0.0.jar'
 
-- task: CopyFiles@1
-  inputs:
-    Contents: 'myapp/target/myapp-1.0-SNAPSHOT.jar'
-    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: 'myapp'
     publishLocation: 'Container'
