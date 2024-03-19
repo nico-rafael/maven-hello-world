@@ -11,6 +11,7 @@ pool:
 
 variables:
   brpatch: $[counter(variables['build.sourcebranchname'], 0)]
+  jarVersion: 1.0.$(brpatch)
 
 steps:
 - task: Maven@1
@@ -23,7 +24,7 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean package'
-    options: 'clean package -Dbrpatch=$(brpatch)'
+    options: 'clean package -DjarVersion=$(jarVersion)'
 
 - task: CmdLine@2
   inputs:
@@ -45,3 +46,4 @@ steps:
     repository: 'nicorafael/helloworld'
     command: 'buildAndPush'
     Dockerfile: 'helloworld.dockerfile'
+    tags: '$(jarVersion)'
