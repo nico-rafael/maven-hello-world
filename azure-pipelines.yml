@@ -27,7 +27,7 @@ steps:
 
 - task: CopyFiles@1
   inputs:
-    Contents: 'myapp/target/myapp-1.0-0.jar'
+    Contents: 'myapp/target/myapp*.jar'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
