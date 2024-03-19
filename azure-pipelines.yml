@@ -25,6 +25,10 @@ steps:
   inputs:
     script: 'java -jar myapp/target/myapp-1.0-SNAPSHOT.jar'
 
+- task: CopyFiles@1
+  inputs:
+    Contents: 'myapp/target/myapp-1.0-SNAPSHOT.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
