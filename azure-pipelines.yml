@@ -29,7 +29,7 @@ steps:
   inputs:
     script: 'java -jar myapp/target/myapp-1.0.$(brpatch).jar'
 
-- task: CopyFiles@1
+- task: CopyFiles@2
   inputs:
     Contents: 'myapp/target/myapp*.jar'
     TargetFolder: '$(build.artifactstagingdirectory)'
@@ -38,3 +38,10 @@ steps:
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Build Artifacts'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker Hub'
+    repository: 'nicorafael/helloworld'
+    command: 'buildAndPush'
+    Dockerfile: 'helloworld.dockerfile'
