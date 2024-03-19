@@ -10,7 +10,7 @@ WORKDIR /helloworld/
 COPY myapp/target/myapp*.jar ./
 
 RUN adduser -D user
-RUN chown user ./
+RUN chown -R user ./*
 USER user
 
 ENTRYPOINT ["java", "-jar", "$(ls myapp*)" ]
