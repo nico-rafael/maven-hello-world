@@ -47,3 +47,4 @@ steps:
     command: 'buildAndPush'
     Dockerfile: 'helloworld.dockerfile'
     tags: '$(jarVersion)'
+    arguments: ' --build-arg jarVersion=$(jarVersion)'
