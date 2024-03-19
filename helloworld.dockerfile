@@ -1,5 +1,8 @@
 FROM alpine
 
+ARG jarVersion
+ENV jarVersion=$jarVersion
+
 RUN apk update
 RUN apk upgrade
 RUN apk add bash openjdk17-jdk
@@ -13,4 +16,4 @@ RUN adduser -D user
 RUN chown -R user ./*
 USER user
 
-ENTRYPOINT ["java", "-jar", "$(ls myapp*)" ]
+ENTRYPOINT ["java", "-jar", "myapp-$jarVersion" ]
