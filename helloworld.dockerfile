@@ -15,5 +15,5 @@ COPY myapp/target/myapp*.jar ./
 RUN adduser -D user
 RUN chown -R user ./*
 USER user
-
-ENTRYPOINT java -jar $jarName
+RUN echo java -jar $jarName
+#ENTRYPOINT java -jar $jarName
