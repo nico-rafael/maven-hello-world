@@ -1,7 +1,7 @@
 FROM alpine
 
 ARG jarVersion
-ARG jarName=myapp-$jarVersion
+ARG jarName=myapp-$jarVersion.jar
 
 RUN apk update
 RUN apk upgrade
@@ -15,5 +15,4 @@ COPY myapp/target/myapp*.jar ./
 RUN adduser -D user
 RUN chown -R user ./*
 USER user
-RUN echo java -jar $jarName
-#ENTRYPOINT java -jar $jarName
+ENTRYPOINT java -jar $jarName
