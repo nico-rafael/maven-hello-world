@@ -1,7 +1,7 @@
 FROM alpine
 
 ARG jarVersion
-ENV jarVersion=$jarVersion
+ARG jarName=myapp-$jarVersion
 
 RUN apk update
 RUN apk upgrade
@@ -16,4 +16,4 @@ RUN adduser -D user
 RUN chown -R user ./*
 USER user
 
-ENTRYPOINT ["java", "-jar", "myapp-$jarVersion" ]
+ENTRYPOINT java -jar $jarName
