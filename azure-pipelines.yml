@@ -56,3 +56,15 @@ steps:
     command: 'push'
     tags: '$(jarVersion)'
 
+
+# Clean docker images and conteinders 
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      #!/bin/bash -x
+      
+      docker container stop $(docker ps -a | grep -v "azp-agent" | awk 'NR>1 {print $1}')
+      docker rm $(docker ps -a | grep -v "azp-agent" | awk 'NR>1 {print $1}')
+      docker rmi $(docker images -a -q)
+
