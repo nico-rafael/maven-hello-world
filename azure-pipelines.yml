@@ -66,6 +66,6 @@ steps:
     script: |
       #!/bin/bash -x
       
-      docker rm $(docker ps -a | grep -v "azp-agent" | awk 'NR>1 {print $1}')
-      docker rmi $(docker images -a -q)
+      #docker rm $(docker ps -a | grep -v "azp-agent" | awk 'NR>1 {print $1}')
+      docker rmi $(docker images -a | grep helloworld | awk '{print $3}')
 
