@@ -44,7 +44,15 @@ steps:
   inputs:
     containerRegistry: 'Docker Hub'
     repository: 'nicorafael/helloworld'
-    command: 'buildAndPush'
-    Dockerfile: 'helloworld.dockerfile'
+    command: 'build'
+    Dockerfile: '**/Dockerfile'
     tags: '$(jarVersion)'
-    arguments: ' --build-arg jarVersion=$(jarVersion)'
+    arguments: 'jarVersion=$(jarVersion)'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker Hub'
+    repository: 'nicorafael/helloworld'
+    command: 'push'
+    tags: '$(jarVersion)'
+
