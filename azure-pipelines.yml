@@ -45,7 +45,7 @@ steps:
     containerRegistry: 'Docker Hub'
     repository: 'nicorafael/helloworld'
     command: 'build'
-    Dockerfile: '**/Dockerfile'
+    Dockerfile: 'helloworld.dockerfile'
     tags: '$(jarVersion)'
     arguments: 'jarVersion=$(jarVersion)'
 
