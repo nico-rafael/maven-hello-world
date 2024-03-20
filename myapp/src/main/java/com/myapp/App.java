@@ -15,7 +15,25 @@ public class App
                 .getPath())
                 .getName();
         System.out.println("Jar version: " + r);
+        printAlien();
     }
+
+    public static void printAlien() {
+        System.out.println("\n\n   /\\___/\\        _______________ ");
+        System.out.println("  /       \\     /                 \\");
+        System.out.println(" /  ^   ^  \\   /    Hello World!   \\");
+        System.out.println("( (  O O  ) ) /     Hello Nico!     \\");
+        System.out.println(" \\  \\v_/  /   \\     Thanks          /");
+        System.out.println("  \\ /___\\ /    \\                   /");
+        System.out.println("  /       \\     \\ _______________ /");
+        System.out.println(" /         \\");
+        System.out.println("(           )");
+        System.out.println(" \\         /");
+        System.out.println("  |  |  |  |");
+        System.out.println("  |  |  |  |");
+        System.out.println("  |  |  |  |");
+        System.out.println("  |  |  |  |");
+        }
 
 
 }
