@@ -40,7 +40,7 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'Build Artifacts'
 
-# Build Dcker
+# Build Docker
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
@@ -50,7 +50,7 @@ steps:
     tags: '$(jarVersion)'
     arguments: '--build-arg jarVersion=$(jarVersion)'
 
-# Push docker to docekr hub
+# Push docker to Docker hub
 - task: Docker@2
   inputs:
     containerRegistry: 'Docker Hub'
@@ -59,7 +59,7 @@ steps:
     tags: '$(jarVersion)'
 
 
-# Clean docker images and conteinders 
+# Clean docker images and containers
 - task: Bash@3
   inputs:
     targetType: 'inline'
