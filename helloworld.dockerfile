@@ -3,6 +3,8 @@ FROM alpine
 ARG jarVersion
 ARG jarName=myapp-$jarVersion.jar
 
+ENV jarName $jarName
+
 RUN apk update
 RUN apk upgrade
 RUN apk add bash openjdk17-jdk
