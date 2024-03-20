@@ -47,7 +47,7 @@ steps:
     command: 'build'
     Dockerfile: 'helloworld.dockerfile'
     tags: '$(jarVersion)'
-    arguments: 'jarVersion=$(jarVersion)'
+    arguments: '--build-arg jarVersion=$(jarVersion)'
 
 - task: Docker@2
   inputs:
